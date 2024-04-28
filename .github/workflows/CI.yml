@@ -39,7 +39,7 @@ jobs:
     - name: Build and Push Docker Image  
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
-        image: docker-hub-repo/image-name
+        image: vikram59/zcommerce
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
