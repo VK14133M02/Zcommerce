@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login {
-    ChromeDriver driver;
+    WebDriver driver;
     String login_page_URL = "https://zcommerce.crio.do/login";
 
     @FindBy(linkText = "Sign Up") WebElement SignupButton;
@@ -27,7 +27,7 @@ public class Login {
     @FindBy(xpath = "//button[text()='Login' and @type='submit']") WebElement loginButton;
 
 
-    public Login(ChromeDriver driver){
+    public Login(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }
