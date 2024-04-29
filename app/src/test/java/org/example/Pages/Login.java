@@ -7,6 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -15,7 +16,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login {
-    WebDriver driver;
+    RemoteWebDriver driver;
     String login_page_URL = "https://zcommerce.crio.do/login";
 
     @FindBy(linkText = "Sign Up") WebElement SignupButton;
@@ -27,7 +28,7 @@ public class Login {
     @FindBy(xpath = "//button[text()='Login' and @type='submit']") WebElement loginButton;
 
 
-    public Login(WebDriver driver){
+    public Login(RemoteWebDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }

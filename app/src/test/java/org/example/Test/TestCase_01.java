@@ -5,6 +5,7 @@ import org.example.Pages.Login;
 import org.example.Pages.Register;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 import org.testng.Assert;
 
@@ -13,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestCase_01 {
 
-    static WebDriver driver;
+    static RemoteWebDriver driver;
 
     String lastGeneratedUserEmail;
 

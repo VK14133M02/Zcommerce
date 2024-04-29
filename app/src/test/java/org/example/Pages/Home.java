@@ -3,6 +3,7 @@ package org.example.Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Home {
-    WebDriver driver;
+    RemoteWebDriver driver;
     String home_page_URL = "https://zcommerce.crio.do/";
 
     @FindBy(xpath = "//button[text()='Login']") WebElement loginButton;
@@ -19,7 +20,7 @@ public class Home {
 
     @FindBy(xpath = "//h3[text()='Logout']") WebElement logoutButton;
 
-    public Home(WebDriver driver){
+    public Home(RemoteWebDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }

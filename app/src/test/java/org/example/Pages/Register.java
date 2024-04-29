@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Register {
-    WebDriver driver;
+    RemoteWebDriver driver;
     String register_page_URL = "https://zcommerce.crio.do/signup";
 
     public String lastGeneratedUserEmail = "";
@@ -27,7 +28,7 @@ public class Register {
     @FindBy(xpath = "//button[text()='Register']") WebElement registerButton;
 
 
-    public Register(WebDriver driver){
+    public Register(RemoteWebDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }
