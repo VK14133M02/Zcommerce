@@ -36,6 +36,14 @@ jobs:
     - name: Build with Gradle Wrapper
       run: ./gradlew build
 
+    # - name: Build and Push Docker Image  
+    #   uses: mr-smithers-excellent/docker-build-push@v6
+    #   with:
+    #     image: vikram59/zcommerce
+    #     registry: docker.io
+    #     username: vikram59
+    #     password: Vikram@docker
+
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
     #
