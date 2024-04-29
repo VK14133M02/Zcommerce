@@ -1,5 +1,6 @@
 package org.example.Pages;
 
+import java.time.Duration;
 import java.util.UUID;
 
 import org.openqa.selenium.By;
@@ -38,7 +39,8 @@ public class Register {
             driver.get(register_page_URL);
         }
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
         wait.until(ExpectedConditions.urlToBe(register_page_URL));
     }
 
@@ -70,8 +72,7 @@ public class Register {
         // click on register button
         registerButton.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.or(ExpectedConditions.urlToBe("https://zcommerce.crio.do/")));
 
         return verifyUserRegisterd(userName);

@@ -1,5 +1,7 @@
 package org.example.Pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,13 +32,13 @@ public class Home {
             driver.get(home_page_URL);
         }
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.urlToBe(home_page_URL));
     }
 
     public void ClickOnLoginButton(){
         loginButton.click();
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.urlToBe("https://zcommerce.crio.do/login"));
     }
 
@@ -44,8 +46,7 @@ public class Home {
         try{
             userNameButton.click();
 
-            WebDriverWait wait = new WebDriverWait(driver, 30);
-
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             wait.until(ExpectedConditions.visibilityOf(logoutButton));
 
             logoutButton.click();

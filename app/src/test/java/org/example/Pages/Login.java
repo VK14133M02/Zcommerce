@@ -38,13 +38,14 @@ public class Login {
             driver.get(login_page_URL);
         }
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        ;
         wait.until(ExpectedConditions.urlToBe(login_page_URL));
     }
 
     public void clickOnSignupButton(){
         SignupButton.click();
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.urlToBe("https://zcommerce.crio.do/signup"));
     }
 
@@ -57,7 +58,7 @@ public class Login {
         //         .pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
         // wait.until(ExpectedConditions.invisibilityOf(loginButton));
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.urlToBe("https://zcommerce.crio.do/"));
 
         return isUserLoggedIn(name);
