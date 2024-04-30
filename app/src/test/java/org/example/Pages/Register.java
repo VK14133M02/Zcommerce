@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Register {
-    RemoteWebDriver driver;
+    WebDriver driver;
     String register_page_URL = "https://zcommerce.crio.do/signup";
 
     public String lastGeneratedUserEmail = "";
@@ -29,7 +29,7 @@ public class Register {
     @FindBy(xpath = "//button[text()='Register']") WebElement registerButton;
 
 
-    public Register(RemoteWebDriver driver){
+    public Register(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }

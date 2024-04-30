@@ -5,7 +5,7 @@ import org.example.Pages.Login;
 import org.example.Pages.Register;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 import org.testng.Assert;
@@ -15,18 +15,27 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestCase_01 {
 
-    static RemoteWebDriver driver;
-
     String lastGeneratedUserEmail;
 
+    static WebDriver driver;    
     @BeforeSuite(alwaysRun = true)
     public static void createDriver(){
         // setup the driver
-        WebDriverManager.edgedriver().setup();
-        // create new instance for driver
-        driver = new EdgeDriver();
+        WebDriverManager.chromedriver().setup();
+
+        // to make the browswe headless
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless","--remote-allow-origins=*");
+
+        // create new instance for driver        
+        driver = new ChromeDriver(options);
+
+        System.out.println("Driver Created");
+
         // maximize the window
         driver.manage().window().maximize();
+
+        driver.get("https://zcommerce.crio.do/");
     }
 
     @Test(description = "Verify the funcanality of login and register")
@@ -38,6 +47,8 @@ public class TestCase_01 {
         // navigate to login page
         home.ClickOnLoginButton();
 
+        System.out.println("Came to the Register page");
+
         Assert.assertEquals(driver.getCurrentUrl(),"https://zcommerce.crio.do/login");
 
         // create object for login page
@@ -47,6 +58,8 @@ public class TestCase_01 {
         //click on Sign Up Button
         login.clickOnSignupButton();
 
+        System.out.println("Home Page");
+
         Assert.assertEquals(driver.getCurrentUrl(),"https://zcommerce.crio.do/signup");
 
         Register register = new Register(driver);
@@ -55,6 +68,8 @@ public class TestCase_01 {
         // register a new user
         status = register.registerUser("pablo", "pablo59@pablo.com", "Pablo@123", true);
         Assert.assertTrue(status, "Not able to Register a user");
+
+        System.out.println("Registration success");
 
         lastGeneratedUserEmail = register.lastGeneratedUserEmail;
 
@@ -66,12 +81,14 @@ public class TestCase_01 {
 
         Assert.assertTrue(status, "Not able to login the user");
 
+        System.out.println("Login Success");
+
         home.logout();        
     }
 
     @AfterSuite
     public void closeDriver(){
-        driver.close();
+        // driver.close();
         driver.quit();
     }    
 }
