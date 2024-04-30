@@ -5,6 +5,7 @@ import org.example.Pages.Login;
 import org.example.Pages.Register;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 import org.testng.Assert;
@@ -21,9 +22,9 @@ public class TestCase_01 {
     @BeforeSuite(alwaysRun = true)
     public static void createDriver(){
         // setup the driver
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.edgedriver().setup();
         // create new instance for driver
-        driver = new ChromeDriver();
+        driver = new EdgeDriver();
         // maximize the window
         driver.manage().window().maximize();
     }
