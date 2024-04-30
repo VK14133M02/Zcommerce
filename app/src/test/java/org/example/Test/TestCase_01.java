@@ -1,12 +1,12 @@
 package org.example.Test;
 
+import org.example.DP;
 import org.example.Pages.Home;
 import org.example.Pages.Login;
 import org.example.Pages.Register;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 import org.testng.Assert;
 
@@ -34,12 +34,10 @@ public class TestCase_01 {
 
         // maximize the window
         driver.manage().window().maximize();
-
-        driver.get("https://zcommerce.crio.do/");
     }
 
-    @Test(description = "Verify the funcanality of login and register")
-    public void TestCase01(){
+    @Test(description = "Verify the funcanality of Register and Login", dataProvider = "data-provider", dataProviderClass = DP.class)
+    public void TestCase01(String name, String email, String password){
         Boolean status;
         Home home = new Home(driver);
         // Navigate to home page
@@ -66,7 +64,7 @@ public class TestCase_01 {
         // navigate to register page
         register.navigateToRegisterPage();
         // register a new user
-        status = register.registerUser("pablo", "pablo59@pablo.com", "Pablo@123", true);
+        status = register.registerUser(name, email, password, true);
         Assert.assertTrue(status, "Not able to Register a user");
 
         System.out.println("Registration success");
@@ -77,7 +75,7 @@ public class TestCase_01 {
 
         home.ClickOnLoginButton();
 
-        status = login.loginUser("pablo",lastGeneratedUserEmail,"Pablo@123");
+        status = login.loginUser(name,lastGeneratedUserEmail,password);
 
         Assert.assertTrue(status, "Not able to login the user");
 
@@ -85,6 +83,11 @@ public class TestCase_01 {
 
         home.logout();        
     }
+
+    // @Test(description = "Verify re-registration")
+    // public void TestCase01_1(){
+
+    // }
 
     @AfterSuite
     public void closeDriver(){
