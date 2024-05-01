@@ -73,7 +73,7 @@ public class Register {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.or(ExpectedConditions.urlToBe("https://zcommerce.crio.do/"), ExpectedConditions.urlToBe("https://zcommerce.crio.do/signup")));
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 
         return verifyUserRegisterd(userName);
     }    

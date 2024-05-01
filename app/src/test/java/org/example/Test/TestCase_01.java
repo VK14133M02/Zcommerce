@@ -24,11 +24,11 @@ public class TestCase_01 {
         WebDriverManager.chromedriver().setup();
 
         // to make the browswe headless
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless","--remote-allow-origins=*");
+        // ChromeOptions options = new ChromeOptions();
+        // options.addArguments("--headless","--remote-allow-origins=*");
 
         // create new instance for driver        
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
 
         System.out.println("Driver Created");
 
@@ -64,7 +64,7 @@ public class TestCase_01 {
         // navigate to register page
         register.navigateToRegisterPage();
         // register a new user
-        status = register.registerUser("Chunnu", "chunnu@chunnu.com", "Chunnu@123", true);
+        status = register.registerUser("Munnu", "munnu@chunnu.com", "Munnu@123", true);
         Assert.assertTrue(status, "Not able to Register a user");
 
         System.out.println("Registration success");
@@ -75,7 +75,7 @@ public class TestCase_01 {
 
         home.ClickOnLoginButton();
 
-        status = login.loginUser("Chunnu",lastGeneratedUserEmail,"Chunnu@123");
+        status = login.loginUser("Munnu",lastGeneratedUserEmail,"Munnu@123");
 
         Assert.assertTrue(status, "Not able to login the user");
 
@@ -112,7 +112,7 @@ public class TestCase_01 {
         // navigate to register page
         register.navigateToRegisterPage();
         // register a new user
-        status = register.registerUser("Chunnu", "chunnu@chunnu.com", "Chunnu@123", true);
+        status = register.registerUser("Gunnu", "gunnu@chunnu.com", "Gunnu@123", true);
         Assert.assertTrue(status, "Not able to Register a user");
 
         // store last generated usereamil
@@ -124,7 +124,7 @@ public class TestCase_01 {
 
         register.navigateToRegisterPage();
         // again registration
-        status = register.registerUser("Chunnu", lastGeneratedUserEmail, "Chunnu@123", false);
+        status = register.registerUser("Gunnu", lastGeneratedUserEmail, "Gunnu@123", false);
 
         Assert.assertTrue(!status,"able to register with same credentail");
     }
