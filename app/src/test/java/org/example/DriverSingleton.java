@@ -13,11 +13,11 @@ public class DriverSingleton {
         WebDriverManager.chromedriver().setup();
 
         // to make the browswe headless
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless","--remote-allow-origins=*");
+        // ChromeOptions options = new ChromeOptions();
+        // options.addArguments("--headless","--remote-allow-origins=*");
 
         // create new instance for driver        
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
 
         System.out.println("Driver Created");
 

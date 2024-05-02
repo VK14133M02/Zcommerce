@@ -2,6 +2,7 @@ package org.example.Test;
 
 import java.util.List;
 
+import org.example.DP;
 import org.example.DriverSingleton;
 import org.example.Pages.Home;
 import org.example.Pages.SearchResult;
@@ -21,14 +22,14 @@ public class TestCase_02 {
         driver = driverSingleton.getInstence();
     }
 
-    @Test(description = "Verify the search functionality")
-    public void TestCase02(){
+    @Test(description = "Verify the search functionality", dataProvider = "data-provider", dataProviderClass = DP.class)
+    public void TestCase02(String Product){
         System.out.println("Testcase02 started successfully");
         boolean status = false;
         Home home = new Home(driver);
         home.navigateToHomePage();
         //search the product        
-        status = home.searchForProduct("boss");
+        status = home.searchForProduct(Product);
         Assert.assertTrue(status,"Unable to search the product");
         System.out.println("Testcase02 started successfully");
 
