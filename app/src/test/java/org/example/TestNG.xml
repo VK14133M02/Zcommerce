@@ -3,10 +3,9 @@
 <suite name="Tests for Zcommerce Regression">
     <test name="Test for Authentication of user">               
         <classes>
-            <class name="org.example.Test.TestCase_01">
+            <class name="org.example.Test.TestCase_02">
                 <methods>
-                    <include name="TestCase01"/>
-                    <include name="TestCase01_1"/>
+                    <include name="TestCase02"/>                    
                 </methods>
             </class>            
         </classes>                
