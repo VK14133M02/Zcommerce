@@ -23,8 +23,8 @@ public class TestCase_01 {
         driver = driverSingleton.getInstence();
     }
 
-    @Test(description = "Verify the funcanality of Register and Login")
-    public void TestCase01(){
+    @Test(description = "Verify the funcanality of Register and Login", dataProvider = "data-provider", dataProviderClass = DP.class)
+    public void TestCase01(String name, String email, String password){
         Boolean status;
         Home home = new Home(driver);
         // Navigate to home page
@@ -51,7 +51,7 @@ public class TestCase_01 {
         // navigate to register page
         register.navigateToRegisterPage();
         // register a new user
-        status = register.registerUser("Munnu", "munnu@chunnu.com", "Munnu@123", true);
+        status = register.registerUser(name, email, password, true);
         Assert.assertTrue(status, "Not able to Register a user");
 
         System.out.println("Registration success");
@@ -62,7 +62,7 @@ public class TestCase_01 {
 
         home.ClickOnLoginButton();
 
-        status = login.loginUser("Munnu",lastGeneratedUserEmail,"Munnu@123");
+        status = login.loginUser(name,lastGeneratedUserEmail,password);
 
         Assert.assertTrue(status, "Not able to login the user");
 
@@ -71,8 +71,8 @@ public class TestCase_01 {
         home.logout();        
     }
 
-    @Test(description = "Verify re-registration")
-    public void TestCase01_1(){
+    @Test(description = "Verify re-registration", dataProvider = "data-provider", dataProviderClass = DP.class)
+    public void TestCase01_1(String name, String email, String password){
         Boolean status;
         Home home = new Home(driver);
         // Navigate to home page
@@ -99,7 +99,8 @@ public class TestCase_01 {
         // navigate to register page
         register.navigateToRegisterPage();
         // register a new user
-        status = register.registerUser("Gunnu", "gunnu@chunnu.com", "Gunnu@123", true);
+        status = register.registerUser(name, email, password, true);
+
         Assert.assertTrue(status, "Not able to Register a user");
 
         // store last generated usereamil
@@ -111,7 +112,7 @@ public class TestCase_01 {
 
         register.navigateToRegisterPage();
         // again registration
-        status = register.registerUser("Gunnu", lastGeneratedUserEmail, "Gunnu@123", false);
+        status = register.registerUser(name, lastGeneratedUserEmail, password, false);
 
         Assert.assertTrue(!status,"able to register with same credentail");
     }
