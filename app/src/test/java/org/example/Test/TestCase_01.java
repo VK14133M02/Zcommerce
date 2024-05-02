@@ -1,16 +1,15 @@
 package org.example.Test;
 
 import org.example.DP;
+import org.example.DriverSingleton;
 import org.example.Pages.Home;
 import org.example.Pages.Login;
 import org.example.Pages.Register;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+
 import org.testng.annotations.*;
 import org.testng.Assert;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class TestCase_01 {
@@ -20,20 +19,8 @@ public class TestCase_01 {
     static WebDriver driver;    
     @BeforeSuite(alwaysRun = true)
     public static void createDriver(){
-        // setup the driver
-        WebDriverManager.chromedriver().setup();
-
-        // to make the browswe headless
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless","--remote-allow-origins=*");
-
-        // create new instance for driver        
-        driver = new ChromeDriver(options);
-
-        System.out.println("Driver Created");
-
-        // maximize the window
-        driver.manage().window().maximize();
+        DriverSingleton driverSingleton = new DriverSingleton();
+        driver = driverSingleton.getInstence();
     }
 
     @Test(description = "Verify the funcanality of Register and Login")
