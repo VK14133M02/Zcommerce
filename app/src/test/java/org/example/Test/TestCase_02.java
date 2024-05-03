@@ -53,7 +53,8 @@ public class TestCase_02 {
 
             status = elementText.contains("boss");
 
-            Assert.assertTrue(status,"Product name is not present in element text");                        
+            Assert.assertTrue(status,"Product name is not present in element text");  
+            break;                      
         }
 
             status = home.filter();

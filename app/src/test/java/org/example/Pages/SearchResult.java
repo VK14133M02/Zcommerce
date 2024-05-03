@@ -19,5 +19,14 @@ public class SearchResult {
         return titleOfSearchResult;
     }
 
+    public void clickOnTheSearchResult(){
+        try {
+            parentElement.click();  
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
+
 
 }
