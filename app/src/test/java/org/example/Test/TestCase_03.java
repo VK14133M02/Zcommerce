@@ -1,14 +1,19 @@
 package org.example.Test;
 
 import java.util.List;
+import java.time.Duration;
 
 import org.example.DriverSingleton;
 import org.example.Pages.Home;
 import org.example.Pages.Login;
+import org.example.Pages.Product;
 import org.example.Pages.Register;
 import org.example.Pages.SearchResult;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.Assert;
 
@@ -85,8 +90,18 @@ public class TestCase_03 {
             status = elementText.contains("Surya");
 
             Assert.assertTrue(status,"Product name is not present in element text"); 
+            webElement.click();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[text()='Add to Cart']")));
+            System.out.println(driver.getCurrentUrl());
             break;            
         }
+
+        Product product = new Product(driver);
+        status = product.isContentPresent("Surya");
+
+        Assert.assertTrue(status,"All the content is not displayed");
+        
     }
 
     @AfterSuite
