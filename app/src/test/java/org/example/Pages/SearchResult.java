@@ -31,5 +31,15 @@ public class SearchResult {
         }
     }
 
+    public void addToCart(String productName){
+        try {
+            WebElement cartButton = parentElement.findElement(By.xpath(String.format("//child::p[text()='%s']//parent::div//following-sibling::button[contains(text(),'CART')]",productName)));
+            seleniumWrapper.click(cartButton, null);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
+
 
 }
