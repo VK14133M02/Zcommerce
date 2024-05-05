@@ -22,14 +22,14 @@ public class TestCase_02 {
         driver = driverSingleton.getInstence();
     }
 
-    @Test(description = "Verify the search functionality", dataProvider = "data-provider", dataProviderClass = DP.class)
-    public void TestCase02(String Product){
+    @Test(description = "Verify the search functionality")
+    public void TestCase02(){
         System.out.println("Testcase02 started successfully");
         boolean status = false;
         Home home = new Home(driver);
         home.navigateToHomePage();
         //search the product        
-        status = home.searchForProduct(Product);
+        status = home.searchForProduct("boss");
         Assert.assertTrue(status,"Unable to search the product");
         System.out.println("Testcase02 started successfully");
 
