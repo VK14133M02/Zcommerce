@@ -3,6 +3,7 @@ package org.example.Pages;
 import java.time.Duration;
 import java.util.UUID;
 
+import org.example.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,20 +33,18 @@ public class Register {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }
 
-    public void navigateToRegisterPage(){
-        if(!driver.getCurrentUrl().equals(register_page_URL)){
-            driver.get(register_page_URL);
-        }
-
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-
-        wait.until(ExpectedConditions.urlToBe(register_page_URL));
+    public void navigateToRegisterPage(){        
+        SeleniumWrapper SeleniumWrapper = new SeleniumWrapper();
+        SeleniumWrapper.navigteToURL(driver, register_page_URL);
     }
 
     public boolean registerUser(String userName, String email, String password, boolean makeUserEmailDynamic){
 
+        SeleniumWrapper seleniumWrapper = new SeleniumWrapper();
+
         // send name in input box
-        name_inputBox.sendKeys(userName);
+        // name_inputBox.sendKeys(userName);
+        seleniumWrapper.sendKey(name_inputBox, userName);
 
         String dynamicUserEmail;
 
@@ -59,16 +58,19 @@ public class Register {
         }
 
         // send the user email to the inout box
-        email_inputBox.sendKeys(dynamicUserEmail);
+        // email_inputBox.sendKeys(dynamicUserEmail);
+        seleniumWrapper.sendKey(email_inputBox, dynamicUserEmail);
 
         // store last generated userEmail
         this.lastGeneratedUserEmail = dynamicUserEmail;
 
         // send password in input box
-        password_inputBox.sendKeys(password);
+        // password_inputBox.sendKeys(password);
+        seleniumWrapper.sendKey(password_inputBox,password);
 
         // click on register button
-        registerButton.click();
+        // registerButton.click();
+        seleniumWrapper.click(registerButton, driver);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.or(ExpectedConditions.urlToBe("https://zcommerce.crio.do/"), ExpectedConditions.urlToBe("https://zcommerce.crio.do/signup")));

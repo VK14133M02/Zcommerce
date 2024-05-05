@@ -11,14 +11,14 @@
             </class>
             <class name="org.example.Test.TestCase_02">
                 <methods>
-                    <include name="TestCase02"/>                    
+                    <include name="TestCase02"/>
                 </methods>
             </class>
             <class name="org.example.Test.TestCase_03">
                 <methods>
-                    <include name="TestCase03"/>                    
+                    <include name="TestCase03"/>
                 </methods>
-            </class>            
+            </class>
         </classes>                
     </test>    
 </suite>

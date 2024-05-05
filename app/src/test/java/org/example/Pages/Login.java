@@ -2,6 +2,7 @@ package org.example.Pages;
 
 import java.time.Duration;
 
+import org.example.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,8 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+
 
 public class Login {
     WebDriver driver;
@@ -24,6 +27,8 @@ public class Login {
 
     @FindBy(xpath = "//button[text()='Login' and @type='submit']") WebElement loginButton;
 
+    SeleniumWrapper seleniumWrapper = new SeleniumWrapper();
+
 
     public Login(WebDriver driver){
         this.driver = driver;
@@ -31,25 +36,19 @@ public class Login {
     }
 
     public void navigateLoginPage(){
-        if(!driver.getCurrentUrl().equals(login_page_URL)){
-            driver.get(login_page_URL);
-        }
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        ;
-        wait.until(ExpectedConditions.urlToBe(login_page_URL));
+        seleniumWrapper.navigteToURL(driver, login_page_URL);
     }
 
     public void clickOnSignupButton(){
-        SignupButton.click();
+        seleniumWrapper.click(SignupButton, driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.urlToBe("https://zcommerce.crio.do/signup"));
     }
 
     public boolean loginUser(String name, String email, String password){
-        email_inputBox.sendKeys(email);
-        password_inputBox.sendKeys(password);
-        loginButton.click();
+        seleniumWrapper.sendKey(email_inputBox, email);
+        seleniumWrapper.sendKey(password_inputBox, password);
+        seleniumWrapper.click(loginButton, driver);
 
         // FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
         //         .pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);

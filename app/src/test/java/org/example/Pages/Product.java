@@ -2,6 +2,7 @@ package org.example.Pages;
 import java.util.*;
 import java.time.Duration;
 
+import org.example.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,6 +34,8 @@ public class Product {
     @FindBy(className = "next") WebElement nextButton;
 
     @FindBy(xpath = "//div[@class='flex gap-2 items-center']") List<WebElement> reviews;
+
+    SeleniumWrapper seleniumWrapper = new SeleniumWrapper();
 
 
     public Product(WebDriver driver){
@@ -80,6 +83,7 @@ public class Product {
             for(int i=0;i<3;i++){
                 // click on the image
                 images.get(i).click();
+                // seleniumWrapper.click(images.get(i), driver);
                 // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
                 // wait.until(ExpectedConditions.)
                 Thread.sleep(2000);                
@@ -106,19 +110,24 @@ public class Product {
 
     // click on scroll button for review and store the name of all reviewer for all the page;
     public void review(){
-        //List to store all the reviewer name and rating
-        ArrayList<String> reviewer = new ArrayList<>();
-        // Run the loop to click on button
-        for(int i=0;i<reviewPaginatinButtons.size()-2;i++){
-            // run the loop on reviewer to store it in list
-            for(WebElement review : reviews){
-                String reviewerName = review.findElement(By.className("font-medium")).getText();
-                String reviewCount = review.findElement(By.xpath("//following-sibling::div[@class='star-ratings']")).getAttribute("title");
-                reviewer.add(reviewerName);
-                reviewer.add(reviewCount);
+        try {           
+            //List to store all the reviewer name and rating
+            ArrayList<String> reviewer = new ArrayList<>();
+            // Run the loop to click on button
+            for(int i=0;i<reviewPaginatinButtons.size()-2;i++){
+                // run the loop on reviewer to store it in list
+                for(WebElement review : reviews){
+                    String reviewerName = review.findElement(By.className("font-medium")).getText();
+                    String reviewCount = review.findElement(By.xpath("//following-sibling::div[@class='star-ratings']")).getAttribute("title");
+                    reviewer.add(reviewerName);
+                    reviewer.add(reviewCount);
+                }
+                nextButton.click();
             }
-            nextButton.click();
+            System.out.println(reviewer);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
         }
-        System.out.println(reviewer);
     }    
 }
