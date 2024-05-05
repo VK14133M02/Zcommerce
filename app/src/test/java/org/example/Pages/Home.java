@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.example.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,34 +32,34 @@ public class Home {
 
     @FindBy(xpath = "//span[text()='We could not find any matches for']") WebElement noResult;
 
+    SeleniumWrapper seleniumWrapper = new SeleniumWrapper();
+
+
     public Home(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }
 
     public void navigateToHomePage(){
-        if(!driver.getCurrentUrl().equals(home_page_URL)){
-            driver.get(home_page_URL);
-        }
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.urlToBe(home_page_URL));
+        seleniumWrapper.navigteToURL(driver, home_page_URL);
     }
 
     public void ClickOnLoginButton(){
-        loginButton.click();
+        seleniumWrapper.click(loginButton, driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.urlToBe("https://zcommerce.crio.do/login"));
     }
 
     public void logout(){
         try{
-            userNameButton.click();
+            // userNameButton.click();
+            seleniumWrapper.click(userNameButton, driver);
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             wait.until(ExpectedConditions.visibilityOf(logoutButton));
 
-            logoutButton.click();
+            // logoutButton.click();
+            seleniumWrapper.click(logoutButton, driver);
 
             wait.until(ExpectedConditions.visibilityOf(loginButton));
 
@@ -71,9 +72,10 @@ public class Home {
     public Boolean searchForProduct(String product){
         try {
             // clear the search box
-            inputBoxElement.clear();
+            // inputBoxElement.clear();
             // send the key in search box
-            inputBoxElement.sendKeys(product);
+            // inputBoxElement.sendKeys(product);
+            seleniumWrapper.sendKey(inputBoxElement, product);
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             wait.until(ExpectedConditions.or(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='flex flex-col gap-2 min-w-[200px] max-w-[350px] cursor-pointer']")),
@@ -120,7 +122,7 @@ public class Home {
 
     public boolean filter(){
         try {
-            dropdown.click();
+            seleniumWrapper.click(dropdown, driver);
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("css-1nmdiq5-menu")));
 

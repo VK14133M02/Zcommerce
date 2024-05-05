@@ -1,10 +1,13 @@
 package org.example.Pages;
 
+import org.example.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class SearchResult {
     WebElement parentElement;
+
+    SeleniumWrapper seleniumWrapper = new SeleniumWrapper();
 
     public SearchResult(WebElement SearchResultElement) {
         this.parentElement = SearchResultElement;
@@ -21,7 +24,7 @@ public class SearchResult {
 
     public void clickOnTheSearchResult(){
         try {
-            parentElement.click();  
+            seleniumWrapper.click(parentElement, null); 
         } catch (Exception e) {
             // TODO: handle exception
             e.printStackTrace();
