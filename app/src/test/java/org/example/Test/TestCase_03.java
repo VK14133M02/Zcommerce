@@ -3,7 +3,6 @@ package org.example.Test;
 import java.util.List;
 import java.time.Duration;
 
-import org.example.DP;
 import org.example.DriverSingleton;
 import org.example.Pages.Home;
 import org.example.Pages.Login;
@@ -28,8 +27,8 @@ public class TestCase_03 {
         driver = driverSingleton.getInstence();
     }
 
-    @Test(description = "Search the product and click on it", dataProvider = "data-provider", dataProviderClass = DP.class)
-    public void TestCase03(String name, String email, String password,String product){
+    @Test(description = "Search the product and click on it")
+    public void TestCase03(){
         Boolean status;
         Home home = new Home(driver);
         // Navigate to home page
@@ -56,7 +55,7 @@ public class TestCase_03 {
         // navigate to register page
         register.navigateToRegisterPage();
         // register a new user
-        status = register.registerUser(name, email, password, true);
+        status = register.registerUser("Chunnu", "Chunnu@gmail.com", "Chunnu@123", true);
         Assert.assertTrue(status, "Not able to Register a user");
 
         System.out.println("Registration success");
@@ -67,14 +66,14 @@ public class TestCase_03 {
 
         home.ClickOnLoginButton();
 
-        status = login.loginUser(name,lastGeneratedUserEmail,password);
+        status = login.loginUser("Chunnu",lastGeneratedUserEmail,"Chunnu@123");
 
         Assert.assertTrue(status, "Not able to login the user");
 
         System.out.println("Login Success");
 
         //search the product        
-        status = home.searchForProduct(product);
+        status = home.searchForProduct("Rubies monster");
         Assert.assertTrue(status,"Unable to search the product");
         System.out.println("Testcase02 started successfully");
 
@@ -88,7 +87,7 @@ public class TestCase_03 {
             // Verify that all results contain the searched text
             String elementText = resultelement.getTitleofResult();
 
-            status = elementText.contains(product);
+            status = elementText.contains("Rubies");
 
             Assert.assertTrue(status,"Product name is not present in element text"); 
             webElement.click();
@@ -99,7 +98,7 @@ public class TestCase_03 {
         }
 
         Product productPage = new Product(driver);
-        status = productPage.isContentPresent(product);
+        status = productPage.isContentPresent("Rubies");
 
         Assert.assertTrue(status,"All the content is not displayed");
 
@@ -108,7 +107,7 @@ public class TestCase_03 {
         
         productPage.review();
 
-        home.logout();       
+        home.logout();
     }
 
     @AfterSuite
