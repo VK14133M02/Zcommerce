@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.math3.geometry.enclosing.WelzlEncloser;
 import org.example.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -31,6 +32,8 @@ public class Home {
     @FindBy(className = "css-1nmdiq5-menu") WebElement dropdownElement;
 
     @FindBy(xpath = "//span[text()='We could not find any matches for']") WebElement noResult;
+
+    @FindBy(xpath = "//a[@href='/cart']") WebElement cartLink;
 
     SeleniumWrapper seleniumWrapper = new SeleniumWrapper();
 
@@ -132,6 +135,18 @@ public class Home {
             e.printStackTrace();
             return false;
         }        
+    }
+
+    public String clickOnCartButton(){
+        try {
+            seleniumWrapper.click(cartLink, driver);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.urlToBe("https://zcommerce.crio.do/cart"));
+            return driver.getCurrentUrl();
+        } catch (Exception e) {
+            // TODO: handle exception
+            return "Some Error in clicking the cart button";
+        }
     }
 
 }

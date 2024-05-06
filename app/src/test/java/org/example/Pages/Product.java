@@ -129,5 +129,14 @@ public class Product {
             // TODO: handle exception
             e.printStackTrace();
         }
-    }    
+    }
+    
+    public void ClickOnAddToCart(){
+        try {
+            seleniumWrapper.click(addToCartButton, driver);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
 }

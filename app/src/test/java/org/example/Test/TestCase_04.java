@@ -6,6 +6,7 @@ import java.util.List;
 import org.example.DriverSingleton;
 import org.example.Pages.Home;
 import org.example.Pages.Login;
+import org.example.Pages.Product;
 import org.example.Pages.Register;
 import org.example.Pages.SearchResult;
 import org.openqa.selenium.By;
@@ -50,7 +51,7 @@ public class TestCase_04 {
 
         System.out.println("Registration success");
         //search the product        
-        status = home.searchForProduct("bush");
+        status = home.searchForProduct("Surya");
         Assert.assertTrue(status,"Unable to search the product");
 
         List<WebElement> searchResults = home.getSearchResults();
@@ -58,20 +59,50 @@ public class TestCase_04 {
 
         for (WebElement webElement : searchResults) {
                 // Create a SearchResult object from the parent element
-            SearchResult resultelement = new SearchResult(webElement);
-
-            // Verify that all results contain the searched text
-            String elementText = resultelement.getTitleofResult();
-
-            status = elementText.contains("bush");
-
-            Assert.assertTrue(status,"Product name is not present in element text"); 
-
-            resultelement.addToCart("Buffalo games - darrell bush - season finale - 1000 piece jigsaw puzzle");
-            
+            SearchResult resultelement = new SearchResult(webElement,driver);
+            // click on the parent element if the product name is matching
+            resultelement.clickOnTheSearchResult("Surya hoo1020-913 hoboken area rug, 9' x 13', blue, neutral");
             // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));            
         }
+
+        // click on add to cart button
+        Product product = new Product(driver);
+        product.ClickOnAddToCart();
+
+        System.out.println("Product_1 added to cart");
+
+        // navigate to home page
+        home.navigateToHomePage();
+
+        // add another product
+
+        status = home.searchForProduct("Rubies monster");
+        Assert.assertTrue(status,"Unable to search the product");
+
+        List<WebElement> searchResults2 = home.getSearchResults();
+
+
+        for (WebElement webElement : searchResults2) {
+                // Create a SearchResult object from the parent element
+            SearchResult resultelement = new SearchResult(webElement,driver);
+            // click on the parent element if the product name is matching
+            resultelement.clickOnTheSearchResult("Rubies monster high fright camera action cleo de nile costume, child large");
+            // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));            
+        }
+
+        //click on add to cart
+        product.ClickOnAddToCart();
+
+        System.out.println("Product_2 added to cart");  
+        
+        // navigate to home page
+        home.navigateToHomePage();
+
+        String cartPageUrl = home.clickOnCartButton();
+        Assert.assertEquals(cartPageUrl, "https://zcommerce.crio.do/cart");
     }
+
+
 
     @AfterSuite
     public void closeDriver(){
