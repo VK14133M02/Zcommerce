@@ -46,7 +46,7 @@ public class TestCase_02 {
 
         for (WebElement webElement : searchResults) {
                 // Create a SearchResult object from the parent element
-            SearchResult resultelement = new SearchResult(webElement);
+            SearchResult resultelement = new SearchResult(webElement,driver);
 
             // Verify that all results contain the searched text
             String elementText = resultelement.getTitleofResult();
