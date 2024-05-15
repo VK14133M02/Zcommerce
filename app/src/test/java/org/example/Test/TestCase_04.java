@@ -4,6 +4,8 @@ import java.time.Duration;
 import java.util.List;
 
 import org.example.DriverSingleton;
+import org.example.Pages.Cart;
+import org.example.Pages.Checkout;
 import org.example.Pages.Home;
 import org.example.Pages.Login;
 import org.example.Pages.Product;
@@ -100,6 +102,23 @@ public class TestCase_04 {
 
         String cartPageUrl = home.clickOnCartButton();
         Assert.assertEquals(cartPageUrl, "https://zcommerce.crio.do/cart");
+        System.out.println("Clicked on cart Button");
+
+        Cart cart = new Cart(driver);
+        String checkoutUrl = cart.clickOnCheckoutButton();
+        Assert.assertEquals(checkoutUrl, "https://zcommerce.crio.do/checkout");
+        System.out.println("Clicked on Checkout Button");
+
+        // add the address on checkout page;
+        Checkout checkout = new Checkout(driver);
+        status = checkout.enterDeleveryAddress("criodo.co.in", "123456", "bgr", "kr", "in");
+        Assert.assertTrue(status, "Not able to fill the address");
+        System.out.println("Address filled");
+
+        checkout.selectPaymentMethod();
+
+        status = checkout.clickOnOrderButton();
+        Assert.assertTrue(status,"Error in the thanks page url");
     }
 
 
