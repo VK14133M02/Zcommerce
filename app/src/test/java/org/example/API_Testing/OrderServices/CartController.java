@@ -3,6 +3,8 @@ package org.example.API_Testing.OrderServices;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -25,6 +27,7 @@ public class CartController {
     private String getCartBasePath = "api/v1/cart";    
     private String postCartBasePath = "api/v1/cart";
     private String viewCartBasePath = "api/v1/cart/view";
+    private String patchCartBasePath = "api/v1/cart";
     private int itemId = 1009;
     private int quantity = 2;
 
@@ -67,9 +70,11 @@ public class CartController {
         JSONArray itemQuantityList = new JSONArray();
         itemQuantityList.put(itemQuantity);
 
+        String currentDateTime = ZonedDateTime.now().format(DateTimeFormatter.ISO_INSTANT);
         // create a josn object to pass the cartID, version, userId and itemQuantityList
         JSONObject payLoad = new JSONObject();
         payLoad.put("id", cartId);
+        payLoad.put("createdAt", currentDateTime);
         payLoad.put("version", version);
         payLoad.put("userId", email);
         payLoad.put("itemQuantityList", itemQuantityList);
@@ -116,5 +121,30 @@ public class CartController {
         } else {
             System.out.println("No available items found.");
         }        
+    }
+
+    @Test(description = "PATCH request on cart to update cart quantity")
+    public void updateProductQuantity(){       
+        RestAssured.basePath = patchCartBasePath;
+        RequestSpecification http = RestAssured.given();
+        http.header("Authorization", "Bearer USER_IMPERSONATE_"+email);
+
+        // Create object to pass the itemId and quantity
+        JSONObject itemQuantity = new JSONObject();
+        itemQuantity.put("itemId", itemId);
+        itemQuantity.put("quantity",3);
+
+        http.contentType(ContentType.JSON);
+        http.body(itemQuantity.toString());
+        Response response = http.patch();
+
+        // System.out.println(response.getBody().asPrettyString());
+        // System.out.println(response.getStatusCode());
+        Assert.assertEquals(response.getStatusCode(),200);
+
+        // validate the json schmea
+        File fileObj = new File("src/test/resources/schema.json");
+        JsonSchemaValidator validator = JsonSchemaValidator.matchesJsonSchema(fileObj);
+        response.then().assertThat().body(validator);
     }
 }
