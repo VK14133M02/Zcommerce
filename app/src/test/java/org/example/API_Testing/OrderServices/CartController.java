@@ -1,11 +1,9 @@
 package org.example.API_Testing.OrderServices;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.Properties;
 
 import org.testng.annotations.*;
@@ -87,7 +85,7 @@ public class CartController {
         // System.out.println(response.getBody().asPrettyString());
         Assert.assertEquals(response.getStatusCode(),200);
 
-        File fileObj = new File("src/test/resources/schema.json");
+        File fileObj = new File("src/test/resources/cartSchema.json");
         JsonSchemaValidator validator = JsonSchemaValidator.matchesJsonSchema(fileObj);
         response.then().assertThat().body(validator);
     }    
@@ -143,7 +141,7 @@ public class CartController {
         Assert.assertEquals(response.getStatusCode(),200);
 
         // validate the json schmea
-        File fileObj = new File("src/test/resources/schema.json");
+        File fileObj = new File("src/test/resources/cartSchema.json");
         JsonSchemaValidator validator = JsonSchemaValidator.matchesJsonSchema(fileObj);
         response.then().assertThat().body(validator);
     }
