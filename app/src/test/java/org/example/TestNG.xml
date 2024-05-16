@@ -28,13 +28,19 @@
     </test>     -->
     <test name="API Testing for order services">
         <classes>
-            <class name="org.example.API_Testing.OrderServices.CartController">
+            <!-- <class name="org.example.API_Testing.OrderServices.CartController">
                 <methods>
                     <include name="addValidItemToCart" />
                     <include name="getCartDetails" />
                     <include name="updateProductQuantity" />
                 </methods>
-            </class>        
+            </class>     -->
+            <class name="org.example.API_Testing.OrderServices.OrderController">
+                <methods>                    
+                    <include name="createOrder" />                    
+                    <include name="getOrderDetails" />                    
+                </methods>
+            </class>    
         </classes>
     </test>
 </suite>
