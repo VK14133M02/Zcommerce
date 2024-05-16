@@ -1,5 +1,6 @@
 package org.example.API_Testing.OrderServices;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
@@ -9,6 +10,7 @@ import org.testng.annotations.*;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -22,6 +24,7 @@ public class CartController {
     private String email = "vikram@gmail.com"; 
     private String getCartBasePath = "api/v1/cart";    
     private String postCartBasePath = "api/v1/cart";
+    private String viewCartBasePath = "api/v1/cart/view";
     private int itemId = 1009;
     private int quantity = 2;
 
@@ -78,10 +81,40 @@ public class CartController {
 
         // System.out.println(response.getBody().asPrettyString());
         Assert.assertEquals(response.getStatusCode(),200);
+
+        File fileObj = new File("src/test/resources/schema.json");
+        JsonSchemaValidator validator = JsonSchemaValidator.matchesJsonSchema(fileObj);
+        response.then().assertThat().body(validator);
     }    
 
-    // @Test(description = "get request on cart")
-    // public void getCartDetails(){
+    @Test(description = "get request on cart")
+    public void getCartDetails(){
+        int[] arr = getCartId(getCartBasePath,email);
+        int cartId = arr[0];
 
-    // }
+        RestAssured.basePath = viewCartBasePath;
+
+        RequestSpecification http = RestAssured.given();
+
+        http.header("Authorization", "Bearer USER_IMPERSONATE_"+email);
+        Response response = http.when().get();
+
+        // Extract cartId itemId and quantity from the response body
+        JSONObject responseBody = new JSONObject(response.getBody().asString());
+        JSONObject data = responseBody.getJSONObject("data");
+        int current_cart_id = data.getInt("id");
+        JSONArray availableItem = data.getJSONArray("availableItem");
+        if (availableItem.length() > 0) {
+            JSONObject firstItem = availableItem.getJSONObject(0);
+            JSONObject item = firstItem.getJSONObject("item");
+            int currentItemId = item.getInt("id");
+            int currentQuantity = firstItem.getInt("quantity");
+            
+            Assert.assertEquals(cartId,current_cart_id);
+            Assert.assertEquals(itemId,currentItemId);
+            Assert.assertEquals(quantity,currentQuantity);
+        } else {
+            System.out.println("No available items found.");
+        }        
+    }
 }

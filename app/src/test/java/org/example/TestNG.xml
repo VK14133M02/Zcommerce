@@ -31,6 +31,7 @@
             <class name="org.example.API_Testing.OrderServices.CartController">
                 <methods>
                     <include name="addValidItemToCart" />
+                    <include name="getCartDetails" />
                 </methods>
             </class>        
         </classes>
