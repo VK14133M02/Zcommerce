@@ -32,6 +32,7 @@
                 <methods>
                     <include name="addValidItemToCart" />
                     <include name="getCartDetails" />
+                    <include name="updateProductQuantity" />
                 </methods>
             </class>        
         </classes>
