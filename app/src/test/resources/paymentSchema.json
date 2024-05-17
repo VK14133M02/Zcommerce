@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "version": {
+          "type": "number"
+        },
+        "order": {},
+        "transactionId": {},
+        "paymentType": {
+          "type": "string"
+        },
+        "paymentStatus": {
+          "type": "string"
+        },
+        "paymentGateway": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "version",
+        "order",
+        "transactionId",
+        "paymentType",
+        "paymentStatus",
+        "paymentGateway"
+      ]
+    }
+  },
+  "required": ["status", "message", "data"]
+}
