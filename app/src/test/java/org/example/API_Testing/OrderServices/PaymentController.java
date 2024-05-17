@@ -21,7 +21,7 @@ public class PaymentController {
     private String postPaymentBasePath = "api/v1/payment";
     private int itemId = 1009;
     private int quantity = 2;
-    private String email = "vikram@gmail.com";
+    private String email = "criodo@crio.com";
     private String address = "Crio.do.koramangla";
     private String paymentType = "CASH_ON_DELIVERY";
     private String postOrderBasePath = "api/v1/order";
@@ -73,7 +73,7 @@ public class PaymentController {
         return orderId;
     }
 
-    @Test(description="POST Request on payment")
+    @Test(description="POST Request on payment", priority = 1)
     public void initiatePayment(){
         int orderId = createOrderId();
         // System.out.println(orderId);
@@ -105,5 +105,18 @@ public class PaymentController {
         File fileObj = new File("src/test/resources/paymentSchema.json");
         JsonSchemaValidator validator = JsonSchemaValidator.matchesJsonSchema(fileObj);
         response.then().assertThat().body(validator);
+    }
+
+    @Test(description = "GET details on payment", priority = 2)
+    public void getPaymentDetails(){
+        System.out.println(paymentId);
+        RestAssured.basePath = String.format("api/v1/payment/%d",paymentId);
+        RequestSpecification http = RestAssured.given();
+
+        http.header("Authorization", "Bearer USER_IMPERSONATE_"+email);    
+        
+        Response response = http.when().get();
+
+        Assert.assertEquals(response.getStatusCode(), 200);
     }
 }
