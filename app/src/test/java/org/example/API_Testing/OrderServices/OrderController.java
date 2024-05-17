@@ -20,7 +20,7 @@ import io.restassured.specification.RequestSpecification;
 public class OrderController {
     private int itemId = 7107;
     private int quantity = 3;
-    private String email = "vikram@gmail.com";
+    private String email = "criodo@crio.com";
     private String address = "Crio.do.koramangla";
     private String paymentType = "CASH_ON_DELIVERY";
     private String postOrderBasePath = "api/v1/order";

@@ -20,7 +20,7 @@ import org.testng.Assert;
 
 
 public class CartController {
-    private String email = "vikram@gmail.com"; 
+    private String email = "criodo@crio.com"; 
     private String getCartBasePath = "api/v1/cart";    
     private String postCartBasePath = "api/v1/cart";
     private String viewCartBasePath = "api/v1/cart/view";
