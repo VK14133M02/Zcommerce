@@ -35,11 +35,16 @@
                     <include name="updateProductQuantity" />
                 </methods>
             </class>     -->
-            <class name="org.example.API_Testing.OrderServices.OrderController">
+            <!-- <class name="org.example.API_Testing.OrderServices.OrderController">
                 <methods>                    
                     <include name="createOrder" />                    
                     <include name="getOrderDetails" />                    
                     <include name="updateOrderStatus" />                    
+                </methods>
+            </class> -->
+            <class name="org.example.API_Testing.OrderServices.PaymentController">
+                <methods>                    
+                    <include name="initiatePayment" />                                                
                 </methods>
             </class>    
         </classes>

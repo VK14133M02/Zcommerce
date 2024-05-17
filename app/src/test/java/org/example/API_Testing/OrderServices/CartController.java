@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Properties;
 
 import org.testng.annotations.*;
 
