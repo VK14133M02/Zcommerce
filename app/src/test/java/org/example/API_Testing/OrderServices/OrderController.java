@@ -19,7 +19,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class OrderController {
     private int itemId = 7107;
-    private int quantity = 1;
+    private int quantity = 3;
     private String email = "vikram@gmail.com";
     private String address = "Crio.do.koramangla";
     private String paymentType = "CASH_ON_DELIVERY";
@@ -34,7 +34,7 @@ public class OrderController {
     @Test(description = "POST request for create order", priority = 1)
     public void createOrder(){
         RestAssured.basePath = postOrderBasePath;
-        RequestSpecification http = RestAssured.given().when().log().all();        
+        RequestSpecification http = RestAssured.given();        
 
         // create object to store the itemId and Quantity
         JSONObject itemsDetail = new JSONObject();
@@ -76,8 +76,32 @@ public class OrderController {
         response.then().assertThat().body(validator);
     }
 
-    // @Test(description = "GET request for order", priority = 2)
-    // public void getOrderDetails(){
-    //     System.out.println("Order id is "+orderId);
-    // }
+    @Test(description = "GET request for order", priority = 2)
+    public void getOrderDetails(){
+        System.out.println("Order id is "+orderId);
+        RestAssured.basePath = String.format("api/v1/order/%d", orderId);
+        RequestSpecification http = RestAssured.given();
+        http.header("Authorization", "Bearer USER_IMPERSONATE_"+email);
+
+        Response response = http.get();
+        Assert.assertEquals(response.getStatusCode(),200);
+
+        // Extract orderId itemId and quantity from the response body
+        JSONObject responseBody = new JSONObject(response.getBody().asString());
+        JSONObject data = responseBody.getJSONObject("data");
+        int current_order_id = data.getInt("id");
+        JSONArray itemDetailsQuantity = data.getJSONArray("itemDetailsQuantity");
+        if (itemDetailsQuantity.length() > 0) {
+            JSONObject firstItem = itemDetailsQuantity.getJSONObject(0);
+            JSONObject item = firstItem.getJSONObject("item");
+            int currentItemId = item.getInt("id");
+            int currentQuantity = firstItem.getInt("quantity");
+            // verify the orderId itemId and quantity
+            Assert.assertEquals(orderId,current_order_id);
+            Assert.assertEquals(itemId,currentItemId);
+            Assert.assertEquals(quantity,currentQuantity);
+        } else {
+            System.out.println("No available items found.");
+        }
+    }
 }
