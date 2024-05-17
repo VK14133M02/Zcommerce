@@ -104,4 +104,28 @@ public class OrderController {
             System.out.println("No available items found.");
         }
     }
+
+    @Test(description = "PATCH Request on Order, Update Status", priority = 2)
+    public void updateOrderStatus(){
+        RestAssured.basePath = String.format("api/v1/order/%d/status", orderId);
+        RequestSpecification http = RestAssured.given();
+
+        http.header("Authorization", "Bearer USER_IMPERSONATE_"+email);
+
+        JSONObject payload = new JSONObject();
+        payload.put("orderStatus", "INITIATED");
+
+        // ser the contentType
+        http.contentType(ContentType.JSON);
+
+        http.body(payload.toString());     
+
+        Response response = http.when().patch();
+        Assert.assertEquals(response.getStatusCode(), 200);
+
+        // validate the json schmea
+        File fileObj = new File("src/test/resources/orderSchema.json");
+        JsonSchemaValidator validator = JsonSchemaValidator.matchesJsonSchema(fileObj);
+        response.then().assertThat().body(validator);
+    }
 }

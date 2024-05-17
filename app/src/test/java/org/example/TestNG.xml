@@ -39,6 +39,7 @@
                 <methods>                    
                     <include name="createOrder" />                    
                     <include name="getOrderDetails" />                    
+                    <include name="updateOrderStatus" />                    
                 </methods>
             </class>    
         </classes>
