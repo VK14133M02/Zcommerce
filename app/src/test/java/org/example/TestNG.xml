@@ -26,7 +26,7 @@
             </class>
         </classes>                
     </test>     -->
-    <test name="API Testing for order services">
+    <!-- <test name="API Testing for order services">
         <classes>
             <class name="org.example.API_Testing.OrderServices.CartController">
                 <methods>
@@ -48,6 +48,16 @@
                     <include name="getPaymentDetails" />                                                
                 </methods>
             </class>    
+        </classes>
+    </test> -->
+    <test name="API Testing for product services">
+        <classes>
+            <class name="org.example.API_Testing.ProductServices.ReviewController">
+                <methods>                    
+                    <include name="getReview" />
+                    <include name="getAllReview" />
+                </methods>
+            </class> 
         </classes>
     </test>
 </suite>
