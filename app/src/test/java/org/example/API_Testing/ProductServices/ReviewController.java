@@ -73,7 +73,7 @@ public class ReviewController {
 
         Response response = http.when().get();
 
-        System.out.println(response.getBody().asPrettyString());
+        // System.out.println(response.getBody().asPrettyString());
         Assert.assertEquals(response.getStatusCode(),200);
 
         // Parse the JSON response
