@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "message": {},
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "version": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "imageUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "price": {
+          "type": "number"
+        },
+        "discountPercentage": {
+          "type": "number"
+        },
+        "shortDescription": {
+          "type": "string"
+        },
+        "longDescription": {
+          "type": "string"
+        },
+        "inventory": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "createdAt": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "string"
+            },
+            "version": {
+              "type": "number"
+            },
+            "item": {},
+            "quantityInStock": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "id",
+            "createdAt",
+            "updatedAt",
+            "version",
+            "item",
+            "quantityInStock"
+          ]
+        },
+        "reviewsList": {},
+        "averageRating": {
+          "type": "number"
+        },
+        "numberOfReviews": {
+          "type": "number"
+        },
+        "category": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "createdAt": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "string"
+            },
+            "version": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "createdAt",
+            "updatedAt",
+            "version",
+            "name",
+            "code"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "version",
+        "code",
+        "name",
+        "title",
+        "imageUrls",
+        "price",
+        "discountPercentage",
+        "shortDescription",
+        "longDescription",
+        "inventory",
+        "reviewsList",
+        "averageRating",
+        "numberOfReviews",
+        "category"
+      ]
+    }
+  },
+  "required": ["status", "message", "data"]
+}
