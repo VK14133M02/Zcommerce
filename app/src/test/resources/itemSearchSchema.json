@@ -1,0 +1,215 @@
+{
+  "status": "SUCCESS",
+  "message": null,
+  "data": {
+    "content": [
+      {
+        "id": 1374,
+        "createdAt": "2023-06-14T12:51:27.508115Z",
+        "updatedAt": "2023-06-14T12:51:27.508115Z",
+        "version": 0,
+        "code": "Hobby-Boss-F-84G-Thunderjet-Airplane-Model-Building-Kit",
+        "name": "Hobby Boss F-84G Thunderjet Airplane Model Building Kit",
+        "title": "Hobby boss f-84g thunderjet airplane model building kit",
+        "imageUrls": [
+          "https://images-na.ssl-images-amazon.com/images/I/41wWQSWix4L.jpg|https://images-na.ssl-images-amazon.com/images/I/51EJOJlau8L.jpg|https://images-na.ssl-images-amazon.com/images/I/51KpSKK7%2BJL.jpg|https://images-na.ssl-images-amazon.com/images/I/51qYQBHBuhL.jpg|https://images-na.ssl-images-amazon.com/images/I/51sVDg9Hw9L.jpg|https://images-na.ssl-images-amazon.com/images/I/51jt7VP04LL.jpg|https://images-na.ssl-images-amazon.com/images/I/413nAzaAtdL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg",
+          "https://images-na.ssl-images-amazon.com/images/I/41zKEPVQbTL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg",
+          "https://images-na.ssl-images-amazon.com/images/I/61eVNCX0jXL.jpg|https://images-na.ssl-images-amazon.com/images/I/51TkpEBheeL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg"
+        ],
+        "price": 58.21,
+        "discountPercentage": 45,
+        "shortDescription": "Hobby boss f-84g thunderjet airplane model building kit",
+        "longDescription": "Also includes external stores - pylons with separate sway braces, 2 drop tanks and assorted bombs \n Colorful decals and color painting reference for 2 aircraft \n 1/32 Scale Aircraft",
+        "inventory": {
+          "id": 7902,
+          "createdAt": "2023-06-14T12:51:27.508115Z",
+          "updatedAt": "2023-06-14T12:51:27.508115Z",
+          "version": 0,
+          "item": null,
+          "quantityInStock": 213
+        },
+        "reviewsList": null,
+        "averageRating": 4.18182,
+        "numberOfReviews": 11,
+        "category": {
+          "id": 3136,
+          "createdAt": "2023-06-14T12:51:27.508115Z",
+          "updatedAt": "2023-06-14T12:51:27.508115Z",
+          "version": 0,
+          "name": "Toys & Games",
+          "code": "Toys-&-Games"
+        }
+      },
+      {
+        "id": 8402,
+        "createdAt": "2023-06-14T12:51:27.508115Z",
+        "updatedAt": "2023-06-14T12:51:27.508115Z",
+        "version": 0,
+        "code": "Hobby-Boss-280mm-K5(E)-Railway-Gun-Leopold-Vehicle-Model-Building-Kit",
+        "name": "Hobby Boss 280mm K5(E) Railway Gun Leopold Vehicle Model Building Kit",
+        "title": "Hobby boss 280mm k5(e) railway gun leopold vehicle model building kit",
+        "imageUrls": [
+          "https://images-na.ssl-images-amazon.com/images/I/51-BtVU1qML.jpg|https://images-na.ssl-images-amazon.com/images/I/51TkpEBheeL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg",
+          "https://images-na.ssl-images-amazon.com/images/I/51W-21b9YfL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg"
+        ],
+        "price": 53.19,
+        "discountPercentage": 75,
+        "shortDescription": "Hobby boss 280mm k5(e) railway gun leopold vehicle model building kit",
+        "longDescription": "Decals and color painting guide for 2 versions of 'Leopold': overall panzer gray/panzer yellow with red brown camouflage. \n Completed gun and rolling stock is over 16.5\" long. Track base approximately 19.7\" long. \n 1/72 Scale Train",
+        "inventory": {
+          "id": 3842,
+          "createdAt": "2023-06-14T12:51:27.508115Z",
+          "updatedAt": "2023-06-14T12:51:27.508115Z",
+          "version": 0,
+          "item": null,
+          "quantityInStock": 362
+        },
+        "reviewsList": null,
+        "averageRating": 4.76923,
+        "numberOfReviews": 13,
+        "category": {
+          "id": 3136,
+          "createdAt": "2023-06-14T12:51:27.508115Z",
+          "updatedAt": "2023-06-14T12:51:27.508115Z",
+          "version": 0,
+          "name": "Toys & Games",
+          "code": "Toys-&-Games"
+        }
+      },
+      {
+        "id": 6486,
+        "createdAt": "2023-06-14T12:51:27.508115Z",
+        "updatedAt": "2023-06-14T12:51:27.508115Z",
+        "version": 0,
+        "code": "Hobby-Boss-TBF-1C-Avenger-Airplane-Model-Building-Kit",
+        "name": "Hobby Boss TBF-1C Avenger Airplane Model Building Kit",
+        "title": "Hobby boss tbf-1c avenger airplane model building kit",
+        "imageUrls": [
+          "https://images-na.ssl-images-amazon.com/images/I/51tTdozUDrL.jpg|https://images-na.ssl-images-amazon.com/images/I/31Dm6I%2BOR6L.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg",
+          "https://images-na.ssl-images-amazon.com/images/I/51f2epBCoIL.jpg|https://images-na.ssl-images-amazon.com/images/I/41h4suBm02L.jpg|https://images-na.ssl-images-amazon.com/images/I/51ZDk36LopL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg"
+        ],
+        "price": 52.33,
+        "discountPercentage": 75,
+        "shortDescription": "Hobby boss tbf-1c avenger airplane model building kit",
+        "longDescription": "Optional open weapons bay with choice of different stores \n Decals and color painting guide for 3 US Navy aircraft \n 1/48 Scale Aircraft",
+        "inventory": {
+          "id": 7702,
+          "createdAt": "2023-06-14T12:51:27.508115Z",
+          "updatedAt": "2023-06-14T12:51:27.508115Z",
+          "version": 0,
+          "item": null,
+          "quantityInStock": 430
+        },
+        "reviewsList": null,
+        "averageRating": 4.72727,
+        "numberOfReviews": 11,
+        "category": {
+          "id": 3136,
+          "createdAt": "2023-06-14T12:51:27.508115Z",
+          "updatedAt": "2023-06-14T12:51:27.508115Z",
+          "version": 0,
+          "name": "Toys & Games",
+          "code": "Toys-&-Games"
+        }
+      },
+      {
+        "id": 2176,
+        "createdAt": "2023-06-14T12:51:27.508115Z",
+        "updatedAt": "2023-06-14T12:51:27.508115Z",
+        "version": 0,
+        "code": "Revell/Monogram-2013-Mustang-Boss-302-Kit",
+        "name": "Revell/Monogram 2013 Mustang Boss 302 Kit",
+        "title": "Revell/monogram 2013 mustang boss 302 kit",
+        "imageUrls": [
+          "https://images-na.ssl-images-amazon.com/images/I/41VjNZaXqVL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg",
+          "https://images-na.ssl-images-amazon.com/images/I/51JzjjPD90L.jpg|https://images-na.ssl-images-amazon.com/images/I/51cxh%2Bau5lL.jpg|https://images-na.ssl-images-amazon.com/images/I/41uRal%2BEL1L.jpg|https://images-na.ssl-images-amazon.com/images/I/51Ssv%2BN1CnL.jpg|https://images-na.ssl-images-amazon.com/images/I/51KksbrMWzL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg",
+          "https://images-na.ssl-images-amazon.com/images/I/315ssLiE3rL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg"
+        ],
+        "price": 25.91,
+        "discountPercentage": 24,
+        "shortDescription": "Revell/monogram 2013 mustang boss 302 kit",
+        "longDescription": "Make sure this fits by entering your model number. \n This kit is 7.25 Inch long \n This kit has 120 parts \n 1/25 Scale Vehicle",
+        "inventory": {
+          "id": 8799,
+          "createdAt": "2023-06-14T12:51:27.508115Z",
+          "updatedAt": "2023-06-14T12:51:27.508115Z",
+          "version": 0,
+          "item": null,
+          "quantityInStock": 495
+        },
+        "reviewsList": null,
+        "averageRating": 4.22222,
+        "numberOfReviews": 9,
+        "category": {
+          "id": 3136,
+          "createdAt": "2023-06-14T12:51:27.508115Z",
+          "updatedAt": "2023-06-14T12:51:27.508115Z",
+          "version": 0,
+          "name": "Toys & Games",
+          "code": "Toys-&-Games"
+        }
+      },
+      {
+        "id": 3788,
+        "createdAt": "2023-06-14T12:51:27.508115Z",
+        "updatedAt": "2023-06-14T12:51:27.508115Z",
+        "version": 0,
+        "code": "Hobby-Boss-Easy-Assembly-UH-1C-Huey-Airplane-Model-Building-Kit",
+        "name": "Hobby Boss Easy Assembly UH-1C Huey Airplane Model Building Kit",
+        "title": "Hobby boss easy assembly uh-1c huey airplane model building kit",
+        "imageUrls": [
+          "https://images-na.ssl-images-amazon.com/images/I/51wOrcShPHL.jpg|https://images-na.ssl-images-amazon.com/images/I/41KtrpEc-OL.jpg|https://images-na.ssl-images-amazon.com/images/I/416oOTjDxjL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg",
+          "https://images-na.ssl-images-amazon.com/images/I/51s6Hskc8QL.jpg|https://images-na.ssl-images-amazon.com/images/I/41l2CBoN%2BJL.jpg|https://images-na.ssl-images-amazon.com/images/I/51wDX571LuL.jpg|https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel.jpg"
+        ],
+        "price": 19.66,
+        "discountPercentage": 70,
+        "shortDescription": "Hobby boss easy assembly uh-1c huey airplane model building kit",
+        "longDescription": "kit consists of over 30 parts , includes 5 clear parts for canopy. \n Decals and color painting guide for 2 aircraft. \n 1/48 Scale Aircraft",
+        "inventory": {
+          "id": 9833,
+          "createdAt": "2023-06-14T12:51:27.508115Z",
+          "updatedAt": "2023-06-14T12:51:27.508115Z",
+          "version": 0,
+          "item": null,
+          "quantityInStock": 228
+        },
+        "reviewsList": null,
+        "averageRating": 4.91667,
+        "numberOfReviews": 12,
+        "category": {
+          "id": 3136,
+          "createdAt": "2023-06-14T12:51:27.508115Z",
+          "updatedAt": "2023-06-14T12:51:27.508115Z",
+          "version": 0,
+          "name": "Toys & Games",
+          "code": "Toys-&-Games"
+        }
+      }
+    ],
+    "pageable": {
+      "sort": {
+        "empty": false,
+        "sorted": true,
+        "unsorted": false
+      },
+      "offset": 0,
+      "pageSize": 5,
+      "pageNumber": 0,
+      "paged": true,
+      "unpaged": false
+    },
+    "last": false,
+    "totalPages": 2,
+    "totalElements": 6,
+    "size": 5,
+    "number": 0,
+    "sort": {
+      "empty": false,
+      "sorted": true,
+      "unsorted": false
+    },
+    "first": true,
+    "numberOfElements": 5,
+    "empty": false
+  }
+}

@@ -52,10 +52,18 @@
     </test> -->
     <test name="API Testing for product services">
         <classes>
-            <class name="org.example.API_Testing.ProductServices.ReviewController">
+            <!-- <class name="org.example.API_Testing.ProductServices.ReviewController">
                 <methods>                    
                     <include name="getReview" />
                     <include name="getAllReview" />
+                </methods>
+            </class> -->
+            <class name="org.example.API_Testing.ProductServices.ItemController">
+                <methods>                    
+                    <include name="getItemById" />
+                    <include name="getItemInventory" />
+                    <include name="searchItem" />
+                    <include name="getRecomended" />
                 </methods>
             </class> 
         </classes>

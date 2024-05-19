@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.io.File;
-import java.util.*;
 
 import io.restassured.RestAssured;
 import io.restassured.module.jsv.JsonSchemaValidator;
