@@ -82,6 +82,49 @@ Review Management : Perform GET, POST, and PATCH requests on cart reviews to ver
 <h4>Category API</h4>
 <img src="https://github.com/VK14133M02/Zcommerce/assets/106018569/b992f8cf-f9c3-43aa-aef5-44ddb5d73b38" alt="" />
 
+<h3>Performance Testing</h3>
+Performance testing was conducted to determine how the application performs under various load conditions. This included stress testing, load testing, and endurance testing to identify potential bottlenecks, ensure stability under heavy traffic, and confirm that the application can handle the expected user load without performance degradation.
+
+<h2>Software Testing Life Cycle (STLC)</h2>
+The project followed the STLC model, which includes the following phases:
+<h3>Requirement Analysis</h3>
+Understanding the functional and non-functional requirements of the e-commerce application.
+<h3>Test Planning</h3>
+Developing a test strategy, defining the scope of testing, and preparing a detailed test plan outlining the resources, schedule, and deliverables.
+<h3>Test Case Development</h3>
+Creating detailed test cases and test scripts based on the defined requirements and scenarios to ensure comprehensive coverage of all functionalities.
+<h3>Test Environment Setup</h3>
+Configuring the necessary hardware and software environments, setting up databases, and preparing test data for executing the test cases.
+<h3>Test Execution</h3>
+Executing the test cases, reporting defects, and re-testing the fixed issues. Automated tests were run to expedite the regression testing process.
+<h3>Test Closure</h3>
+Preparing the test summary report, documenting lessons learned, and obtaining project sign-off from stakeholders. Ensuring that all test artifacts are archived for future reference.
+
+<h2>Tools and Technologies</h2>
+<h3>UI Testing: Java,Selenium, TestNG </h3> 
+<h3>API Testing: Postman, REST Assured, Swagger </h3> 
+<h3>Performance Testing: JMeter, LoadRunner </h3>
+<h3>Tool: Log4J, Extent Report</h3> 
+<h3>Continuous Integration: GitHub Actions</h3>
+
+<h2>Conclusion</h2>
+This project demonstrates a thorough approach to testing an e-commerce website, ensuring that it meets high standards of quality and performance. By following the STLC model and employing various testing methodologies, we have aimed to deliver a robust, reliable, and user-friendly application.
+
+<p>For more details on the implementation and to view the test scripts, please refer to the project repository.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
