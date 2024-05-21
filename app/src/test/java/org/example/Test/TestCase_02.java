@@ -17,7 +17,7 @@ public class TestCase_02 {
     static WebDriver driver; 
     
     @BeforeSuite(alwaysRun = true)
-    public static void createDriver(){
+    public void createDriver(){
         DriverSingleton driverSingleton = new DriverSingleton();
         driver = driverSingleton.getInstence();
     }
