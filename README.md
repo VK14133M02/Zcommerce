@@ -101,11 +101,16 @@ Executing the test cases, reporting defects, and re-testing the fixed issues. Au
 Preparing the test summary report, documenting lessons learned, and obtaining project sign-off from stakeholders. Ensuring that all test artifacts are archived for future reference.
 
 <h2>Tools and Technologies</h2>
-<h3>UI Testing: Java,Selenium, TestNG </h3> 
+<h3>UI Testing: Java, Selenium, TestNG </h3> 
 <h3>API Testing: Postman, REST Assured, Swagger </h3> 
 <h3>Performance Testing: JMeter, LoadRunner </h3>
 <h3>Tool: Log4J, Extent Report</h3> 
 <h3>Continuous Integration: GitHub Actions</h3>
+
+<h2>Extent Report</h2>
+<img src="https://github.com/VK14133M02/Zcommerce/assets/106018569/6167f98e-2ed5-4d7b-beda-0ae1d9da23c6" alt="" />
+<img src="https://github.com/VK14133M02/Zcommerce/assets/106018569/04482449-cc3b-49f4-9da4-02314257ca7b" alt="" />
+<img src="https://github.com/VK14133M02/Zcommerce/assets/106018569/61071fb8-2916-423f-965f-a30f8b00ab4a" alt="" />
 
 <h2>Conclusion</h2>
 This project demonstrates a thorough approach to testing an e-commerce website, ensuring that it meets high standards of quality and performance. By following the STLC model and employing various testing methodologies, we have aimed to deliver a robust, reliable, and user-friendly application.
