@@ -1,9 +1,10 @@
 package org.example.Test;
 
-import java.time.Duration;
+import java.io.IOException;
 import java.util.List;
 
 import org.example.DriverSingleton;
+import org.example.ReportSingleton;
 import org.example.Pages.Cart;
 import org.example.Pages.Checkout;
 import org.example.Pages.Home;
@@ -11,27 +12,34 @@ import org.example.Pages.Login;
 import org.example.Pages.Product;
 import org.example.Pages.Register;
 import org.example.Pages.SearchResult;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.testng.annotations.*;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import org.testng.Assert;
 
 public class TestCase_04 {
     String lastGeneratedUserEmail;
-
+    ExtentReports report;
+    ExtentTest test;
     static WebDriver driver;    
     @BeforeSuite(alwaysRun = true)
     public void createDriver(){
         DriverSingleton driverSingleton = new DriverSingleton();
         driver = driverSingleton.getInstence();
+
+        ReportSingleton reportSingleton = ReportSingleton.getInstanceOfSingletonReport();
+        report = reportSingleton.getReport();
+        test = report.startTest("TestCase04");
     }
 
     @Test(description="Add to Crt")
-    public void TestCase04(){
+    public void TestCase04() throws IOException{
         Boolean status;
         Home home = new Home(driver);
         // Navigate to home page
@@ -55,6 +63,8 @@ public class TestCase_04 {
         //search the product        
         status = home.searchForProduct("Surya");
         Assert.assertTrue(status,"Unable to search the product");
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.captureScreenShot(driver)));
+
 
         List<WebElement> searchResults = home.getSearchResults();
 
@@ -80,6 +90,7 @@ public class TestCase_04 {
 
         status = home.searchForProduct("Rubies monster");
         Assert.assertTrue(status,"Unable to search the product");
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.captureScreenShot(driver)));
 
         List<WebElement> searchResults2 = home.getSearchResults();
 
@@ -102,23 +113,30 @@ public class TestCase_04 {
 
         String cartPageUrl = home.clickOnCartButton();
         Assert.assertEquals(cartPageUrl, "https://zcommerce.crio.do/cart");
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.captureScreenShot(driver)));
+
         System.out.println("Clicked on cart Button");
 
         Cart cart = new Cart(driver);
         String checkoutUrl = cart.clickOnCheckoutButton();
         Assert.assertEquals(checkoutUrl, "https://zcommerce.crio.do/checkout");
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.captureScreenShot(driver)));
+
         System.out.println("Clicked on Checkout Button");
 
         // add the address on checkout page;
         Checkout checkout = new Checkout(driver);
         status = checkout.enterDeleveryAddress("criodo.co.in", "123456", "bgr", "kr", "in");
         Assert.assertTrue(status, "Not able to fill the address");
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.captureScreenShot(driver)));
+
         System.out.println("Address filled");
 
         checkout.selectPaymentMethod();
 
         status = checkout.clickOnOrderButton();
         Assert.assertTrue(status,"Error in the thanks page url");
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.captureScreenShot(driver)));
     }
 
 
@@ -127,6 +145,8 @@ public class TestCase_04 {
     public void closeDriver(){
         // driver.close();
         driver.quit();
+        report.endTest(test);
+        report.flush();
     } 
 
 }

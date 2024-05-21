@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Tests for Zcommerce Regression">
-    <!-- <test name="Test for Authentication of user">               
+    <test name="Test for Authentication of user">               
         <classes>
             <class name="org.example.Test.TestCase_01">
                 <methods>
@@ -25,8 +25,8 @@
                 </methods>
             </class>
         </classes>                
-    </test>     -->
-    <test name="API Testing for order services">
+    </test>    
+    <!-- <test name="API Testing for order services">
         <classes>
             <class name="org.example.API_Testing.OrderServices.CartController">
                 <methods>
@@ -67,5 +67,5 @@
                 </methods>
             </class> 
         </classes>
-    </test>
+    </test> -->
 </suite>

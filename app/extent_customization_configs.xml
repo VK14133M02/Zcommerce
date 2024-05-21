@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> <extentreports>
+<configuration>
+<!-- <!– title ofthe document –>  -->
+<documentTitle>ZCommerce</documentTitle>
+<!-- <!– protocol for script and stylesheets–> -->
+<!-- <!- defaults to https–> -->
+<protocol>http</protocol>
+<!-- <!–document encoding –>  -->
+<!-- <!–defaults to UTF-8 –>  -->
+<encoding>UTF-8</encoding>
+<!-- <!–report theme –>  -->
+<!-- <!–standard,dark–> -->
+<theme>dark</theme>
+<!-- <!–report name = displayed at top-nav with logo–>  -->
+<reportName align="center">
+<!-- <img src=”../logo.png” style=”position:absolute;left:75px;”/>  -->
+<message>ZCommerce Automation Report</message>
+</reportName>
+<!-- <!–locationofchartsinthetestview–>  -->
+<!-- <!–top,bottom–> -->
+<testViewChartLocation>bottom</testViewChartLocation>
+</configuration>
+</extentreports>

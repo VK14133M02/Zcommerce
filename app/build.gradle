@@ -25,7 +25,6 @@ dependencies {
     // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
     implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.5.3'
 
-
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.20.0'
 
@@ -44,6 +43,8 @@ dependencies {
     // https://mvnrepository.com/artifact/org.json/json
     implementation group: 'org.json', name: 'json', version: '20240303'
 
+    // https://mvnrepository.com/artifact/com.relevantcodes/extentreports
+    implementation group: 'com.relevantcodes', name: 'extentreports', version: '2.41.2'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
