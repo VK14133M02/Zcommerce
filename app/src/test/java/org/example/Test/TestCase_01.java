@@ -73,6 +73,7 @@ public class TestCase_01 {
 
     @Test(description = "Verify re-registration")
     public void TestCase01_1(){
+        System.out.println("TestCase01 started");
         Boolean status;
         Home home = new Home(driver);
         // Navigate to home page
@@ -115,6 +116,7 @@ public class TestCase_01 {
         status = register.registerUser("Chunnu", lastGeneratedUserEmail, "Chunnu@123", false);
 
         Assert.assertTrue(!status,"able to register with same credentail");
+        System.out.println("TestCase01 Ended");
     }
 
     @AfterSuite
