@@ -12,7 +12,7 @@ public class SeleniumWrapper {
     public void click(WebElement element, WebDriver driver){
         try {
             if(element.isDisplayed()){
-                // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
                 element.click();
             }
         } catch (Exception e) {
