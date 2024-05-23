@@ -20,20 +20,31 @@ public class ReportSingleton {
 
     public static String getTimeStamp(){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        return String.valueOf(timestamp).replace(':', '-');
+        return String.valueOf(timestamp).replace(':', '-').replace(' ', '_').replace('.', '-');
     }
     
     public static String captureScreenShot(WebDriver driver) throws IOException{
         File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        File destFile = new File(System.getProperty("user.dir")+"/Screenshots/"+getTimeStamp()+".png");
+        String screenshotPath = System.getProperty("user.dir") + "/Screenshots/";
+        File destFile = new File(screenshotPath + getTimeStamp() + ".png");
+        // Ensure the screenshots directory exists
+        File screenshotDir = new File("/Screenshots");
+        if (!screenshotDir.exists()) {
+            screenshotDir.mkdirs();
+        }
         String errflpath = destFile.getAbsolutePath();
         FileUtils.copyFile(srcFile,destFile);
         return errflpath;
     } 
 
     private ReportSingleton() {
-        report = new ExtentReports(System.getProperty("user.dir")+"/Reports/" + "ExtentReportResults_" + getTimeStamp() + ".html"); 
-        report.loadConfig(new File("extent_customization_configs.xml"));
+        String reportPath = System.getProperty("user.dir") + "/Reports/";
+        File reportDir = new File("/Reports");
+        if (!reportDir.exists()) {
+            reportDir.mkdirs();
+        }
+        report = new ExtentReports(reportPath + "ExtentReportResults_" + getTimeStamp() + ".html");
+        report.loadConfig(new File(System.getProperty("user.dir") + "/extent_customization_configs.xml"));
     }
 
     public static ReportSingleton getInstanceOfSingletonReport() {

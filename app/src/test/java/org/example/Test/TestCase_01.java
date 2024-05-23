@@ -49,7 +49,7 @@ public class TestCase_01 {
         System.out.println("Came to the Register page");
 
         Assert.assertEquals(driver.getCurrentUrl(),"https://zcommerce.crio.do/login");
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.captureScreenShot(driver)));
+        test.log(LogStatus.INFO,"Screenshot: "+ test.addScreenCapture(ReportSingleton.captureScreenShot(driver)));
 
         // create object for login page
         Login login = new Login(driver);

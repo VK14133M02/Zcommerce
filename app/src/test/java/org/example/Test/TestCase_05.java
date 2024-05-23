@@ -44,7 +44,11 @@ public class TestCase_05 {
         Pagination pagination = new Pagination(driver);
         status = pagination.verifyForwordPagination(expectedForwordPagination);
         Assert.assertTrue(status,"Forword Paggination is not working as Expected");
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.captureScreenShot(driver)));
+         // Capture screenshot and add to report
+        String screenshotPath = ReportSingleton.captureScreenShot(driver);
+        System.out.println("Screenshot path: " + screenshotPath);
+
+        test.log(LogStatus.INFO,"Screenshot: "+ test.addScreenCapture(screenshotPath));
 
         System.out.println("Forword Pagination is working as expected");
 
@@ -52,7 +56,11 @@ public class TestCase_05 {
 
         status = pagination.verifyBackwordPagination(expectedBackwordPagination);
         Assert.assertTrue(status,"Backword Pagination is not working as expected");
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.captureScreenShot(driver)));
+        screenshotPath = ReportSingleton.captureScreenShot(driver);
+        System.out.println("Screenshot path: " + screenshotPath);
+
+        test.log(LogStatus.INFO,"Screenshot: "+ test.addScreenCapture(screenshotPath));
+
 
         System.out.println("Backword button is working fine");
     }

@@ -87,3 +87,13 @@ tasks.named('test') {
     testLogging.showStandardStreams = true
     test.outputs.upToDateWhen {false}
 }
+
+task startServer(type: Exec) {
+    description = 'Start the HTTP server to serve the Extent reports'
+    // For Unix-based systems
+    if (System.getProperty('os.name').toLowerCase().contains('win')) {
+        commandLine 'cmd', '/c', 'scripts/start-server.bat'
+    } else {
+        commandLine 'sh', './scripts/start-server.sh'
+    }
+}
